@@ -1,0 +1,60 @@
+Signals {
+	TRST IN;
+	TCK IN;
+	TMS IN;
+	TDI IN;
+	TDO OUT;
+}
+
+SignalGroups {
+	JTAG_PINS 'TRST + TCK + TMS + TDI + TDO';
+}
+
+Pattern {
+	W jtag_timing;
+/* SDR	5	TDI(00100)	TDO(00101)	SMASK(11111)	MASK(11111) */
+	Loop 5 {
+		V {  JTAG_PINS = 1110X;}/* XXX */
+	}
+	V {  JTAG_PINS = 1100X;}/* IDLE */
+	V {  JTAG_PINS = 1110X;}/* DRSELECT */
+	V {  JTAG_PINS = 1100X;}/* DRCAPTURE */
+	V {  JTAG_PINS = 1100H;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* DRSHIFT */
+	V {  JTAG_PINS = 1101L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* DRSHIFT */
+	V {  JTAG_PINS = 1101L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* DRSHIFT */
+	V {  JTAG_PINS = 1101L;}/* DRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* DRSHIFT */
+	Loop 5 {
+		V {  JTAG_PINS = 1110X;}/* RESET */
+	}
+	V {  JTAG_PINS = 1100X;}/* IDLE */
+/* SIR	5	TDI(00100)	TDO(00101)	SMASK(11111)	MASK(11111) */
+	Loop 2 {
+		V {  JTAG_PINS = 1110X;}/* IRSELECT */
+	}
+	V {  JTAG_PINS = 1100X;}/* IRCAPTURE */
+	V {  JTAG_PINS = 1100H;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* IRSHIFT */
+	V {  JTAG_PINS = 1101L;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100H;}/* IRSHIFT */
+	V {  JTAG_PINS = 1101L;}/* IRSHIFT */
+	V {  JTAG_PINS = 1100L;}/* IRSHIFT */
+	Loop 5 {
+		V {  JTAG_PINS = 1110X;}/* RESET */
+	}
+	V {  JTAG_PINS = 1100X;}/* IDLE */
+}

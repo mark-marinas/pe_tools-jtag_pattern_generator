@@ -1,0 +1,40 @@
+---------------------------------------------------------------------------
+				SECTION I
+Revision History:
+1.0. Oct 19, 2015 - Initial Release
+---------------------------------------------------------------------------
+				SECTION II
+Description:
+This program converts a jtag svf input file to a stil pattern output file.
+All svf commands are supported exept for the following:
+	PIO
+	PIOMAP
+The following commands are implemented, but not fully compliant to SVF.
+	RUNTEST 
+		- it doesnt support SCK.
+		- in the  first form, it only checks if run_count can be completed within the min/max limits. If not it wont run at all. Not including min/max time assumes that limits are not required.
+		- in the second form, it doesnt run the min/max time limits. It only calculate the average of the min/max, then run it using the average value
+	STATE
+		- it may not follow the state transition required/recommended/recommended.
+	TRST
+		- HIGHZ is of no use.	 
+
+A sample output file (jtag.stil) is available on this directory, generated from jtag.sv using the following command line:
+./JtagPatGen.exe -if jtag.svf -of jtag.stil -debug -repeat ON
+
+---------------------------------------------------------------------------
+			SECTION III
+To compile:
+	Just type make.
+---------------------------------------------------------------------------
+			SECTION IV
+TODO:
+	1. Implement not supported (or not fully compliant commands) in Section II.	
+	2. Improve error messages.
+	3. Support other tester output format.
+	4. Maybe add hw support, ie connect microcontroller to the USB, then let it execute the svf commands.
+
+
+---------------------------------------------------------------------------
+email us at PESolutions@engineer.com if you want any feature to be added, or if you find any bug.
+We cant promise we will do it, but we might if we have time.
