@@ -1,4 +1,5 @@
 #ifndef __STRING_MANIP_H__
+#define __STRING_MANIP_H__
 
 /*
 WARNING:

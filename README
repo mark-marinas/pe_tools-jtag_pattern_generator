@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------------
-				SECTION I
+I
 Revision History:
 1.0. Oct 19, 2015 - Initial Release
 ---------------------------------------------------------------------------
-				SECTION II
+II
 Description:
 This program converts a jtag svf input file to a stil pattern output file.
 All svf commands are supported exept for the following:
@@ -23,11 +23,11 @@ A sample output file (jtag.stil) is available on this directory, generated from 
 ./JtagPatGen.exe -if jtag.svf -of jtag.stil -debug -repeat ON
 
 ---------------------------------------------------------------------------
-			SECTION III
+III
 To compile:
 	Just type make.
 ---------------------------------------------------------------------------
-			SECTION IV
+IV
 TODO:
 	1. Implement not supported (or not fully compliant commands) in Section II.	
 	2. Improve error messages.
@@ -36,5 +36,3 @@ TODO:
 
 
 ---------------------------------------------------------------------------
-email us at PESolutions@engineer.com if you want any feature to be added, or if you find any bug.
-We cant promise we will do it, but we might if we have time.
